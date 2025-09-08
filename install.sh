@@ -1,11 +1,11 @@
 setupFile() {
-	mkdir -p $HOME/bin $HOME/cegep $HOME/projects
+	mkdir -p $HOME/bin $HOME/cegep $HOME/projets
 }
 
 #package necessaire
 
 installPackages() {
-	sudo pacman -Syu --needed --noconfirm git vim nivm gcc gdb python3 python3-pip python3-venv
+	sudo pacman -Syu --needed --noconfirm git vim nvim gcc gdb python python-pip python-venv
 }
 
 #gitConfig
@@ -16,61 +16,14 @@ gitConfiguration() {
 	git config --global user.email "jonatan1234@outlook.fr"
 }
 
-#nvim un fichier
-
-createFileAndEdit() {
-	touch "$1"
-	nvim $1
-}
-
-#cree, ouvrir un dossier
-
-createFolderAndOpen() {
-	mkdir $1
-	cd $1
-}
-
-#grep insensible
-myGrep() {
-	grep -ri "$@" .
-}
 
 #download les packs et creer git
+setupFile
 installPackages
 gitConfiguration
 
-#PS1 personnalise
 
-PS1='\[\e[94;1m\][\W]\[\e[0m\] \[\e[32m\][$?]\[\e[0m\]\n\[\e[95m\]$ >>> \[\e[0m\]'
+echo "copie des fichiers dotfiles"
+cp ./dotfiles/.bashrc ~/.bashrc
 
-# alias
-
-alias lsa='ls -a'
-alias lla='ls -l -a'
-alias c='clear'
-alias grepc='GREP_COLORS="ms=01;31" grep --color=auto'
-alias foldergo='createFolderAndOpen'
-alias filego='createFileAndEdit'
-alias grepp='myGrep'
-
-
-echo -e "    ____________________________________________________
-           /                                                      \
-           |    _____________________________________________     |
-           |   |                                             |    |
-           |   |  Bonjour Jonathan !                         |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |_____________________________________________|    |
-           |                                                      |
-            \_____________________________________________________/
-                   \_______________________________________/"
+export PATH="$HOME/bin:$PATH"
