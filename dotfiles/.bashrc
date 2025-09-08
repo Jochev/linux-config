@@ -25,7 +25,7 @@ echo "      ____________________________________________________
 alias lsa='ls -a'
 alias lla='ls -l -a'
 alias c='clear'
-alias grepc='GREP_COLORS="ms=01;31" grep --color=auto'
+alias grepc='GREP_COLORS="mt=01;31" grep --color=auto'
 alias foldergo='createFolderAndOpen'
 alias filego='createFileAndEdit'
 alias grepp='myGrep'
