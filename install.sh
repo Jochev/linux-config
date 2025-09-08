@@ -35,5 +35,3 @@ clear
 
 echo "chargement..."
 source ~/.bashrc || true
-
-echo "termine ! relancement.."
