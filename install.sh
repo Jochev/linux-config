@@ -18,12 +18,22 @@ gitConfiguration() {
 
 
 #download les packs et creer git
+echo "creation des dossiers..."
 setupFile
+echo "installation des packages..."
 installPackages
+echo "configuration de github..."
 gitConfiguration
 
 
-echo "copie des fichiers dotfiles"
+echo "copie des fichiers dotfiles..."
 cp ./dotfiles/.bashrc ~/.bashrc
 
 export PATH="$HOME/bin:$PATH"
+
+clear
+
+echo "chargement..."
+source ~/.bashrc || true
+
+echo "termine ! relancement.."
