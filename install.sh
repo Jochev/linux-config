@@ -5,7 +5,7 @@ setupFile() {
 #package necessaire
 
 installPackages() {
-	sudo pacman -Syu --needed --noconfirm git vim nvim gcc gdb python python-pip python-venv
+	sudo pacman -Syu --needed --noconfirm git vim nvim gcc gdb python python-pip python-venv starship
 }
 
 #gitConfig
