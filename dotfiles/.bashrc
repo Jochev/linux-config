@@ -30,6 +30,16 @@ alias grepc='GREP_COLORS="mt=01;31" grep --color=auto'
 alias foldergo='createFolderAndOpen'
 alias filego='createFileAndEdit'
 alias grepp='myGrep'
+alias install='sudoPac'
+
+# sudo pacman -S <package>
+sudoPac() {
+	if [ $# -eq 0 ]; then
+		echo "Install... <package>"
+		return 1
+	fi
+    	sudo pacman -Sy --noconfirm --needed "$@"
+}
 
 #PS1 personnalise
 
@@ -40,6 +50,7 @@ PS1='\[\e[94;1m\][\W]\[\e[0m\] \[\e[32m\][$?]\[\e[0m\]\n\[\e[95m\]$ >>> \[\e[0m\
 
 createFileAndEdit() {
 	touch "$1"
+
 	nvim $1
 }
 
